@@ -1,0 +1,59 @@
+﻿<Page x:Class="MarketPlace.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarketPlace.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Left" Text="Login" Style="{StaticResource TitleTb}"/>
+            <TextBox x:Name="LoginTb"
+                     HorizontalAlignment="Left" Width="220"
+                    Height="20" Margin="5"/>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock HorizontalAlignment="Left" Text="Password"
+                           Style="{StaticResource TitleTb}"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="Password2TB"
+                  
+                             Width="150" Visibility="Collapsed"/>
+                    <PasswordBox x:Name="Password2Pb"  
+                                 Height="20" Margin="5"
+                                 Width="150" />
+                    <Button x:Name="Vid" 
+                       Click="Vid_Click"
+                             Width="25" Height="25">
+                        <Image Source="\Resoures\63656.png"/>
+                    </Button>
+                    <Button x:Name="Sce" Width="25" Height="25" 
+                      Click="Sce_Click">
+                        <Image Source="\Resoures\201f0cdf3f9a2a4efff1abb2c507a472.png"/>
+
+                    </Button>
+                    <CheckBox
+                        Visibility="Hidden"
+                      x:Name="ShowPasswordCharsCheckBox"
+                        Unchecked="ShowPasswordCharsCheckBox_Unchecked"
+                    Checked="ShowPasswordCharsCheckBox_Checked"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Войти" x:Name="EntranceBtn"
+                        Click="EntranceBtn_Click"/>
+                <Button Content="Регистрация" x:Name="RegistrationBtn"
+                        Click="RegistrationBtn_Click"
+                        />
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
