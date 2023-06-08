@@ -9,6 +9,104 @@
       Title="BasketPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="ProductLw" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Margin="5" Orientation="Horizontal">
+                                <TextBlock Text="Name" Margin="5" />
+                                <TextBlock x:Name="TitleTb" Margin="5"
+                                       Text="{Binding Title}"/>
+                            </StackPanel>
+                            <TextBlock Text="Cost" Margin="10"/>
+                            <TextBlock  Margin="10" 
+                                        Text="{Binding Cost}"/>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Count" Margin="5"/>
+                                <TextBox Width="50" x:Name="CountTb"
+                                        Text="{Binding Count}" PreviewTextInput="CountTb_PreviewTextInput"
+                                         />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="User"/>
+                <TextBlock Name="UserTb" Margin="5" HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Type delivery"/>
+                <ComboBox x:Name="TypedeliveryCb"
+                          DisplayMemberPath="Title" SelectionChanged="Typedelivery_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" x:Name="AdressSt" HorizontalAlignment="Right">
+                <TextBlock Text="Adress Delivery"/>
+                <TextBox x:Name="AdressDeliveryTb"/>
+            </StackPanel>
+
+            <StackPanel x:Name="DeliveryPointSt" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Delivery Point"/>
+                <ComboBox x:Name="DeliveryPointCb"
+                          DisplayMemberPath="Adress"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Type payment"/>
+                <ComboBox x:Name="TypePaymentCb"
+                          DisplayMemberPath="Title" SelectionChanged="TypePaymentCb_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" 
+                        
+                        HorizontalAlignment="Right">
+                <TextBlock Text="Check" Name="ChekRB"/>
+                <ComboBox x:Name="CheckCb"
+                          DisplayMemberPath="Numger" SelectionChanged="CheckCb_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" x:Name="ChekSt">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="CSV"/>
+                        <TextBox x:Name="CSV" Width="60" MaxLength="3"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Check"/>
+                        <TextBlock x:Name="CheckTb"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Bank"/>
+                    <TextBlock Name="BankTb"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Button x:Name="OrderAddBtn" Grid.Column="1"
+                Content="Creat order"
+                Grid.Row="1" Width="100" Height="20" Click="OrderAddBtn_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

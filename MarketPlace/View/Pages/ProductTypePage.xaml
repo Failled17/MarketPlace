@@ -6,9 +6,60 @@
       xmlns:local="clr-namespace:MarketPlace.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductTypePage">
+      Title="ProductTypePage"
+      Loaded="Page_Loaded">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="322*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка"/>
+                <ComboBox x:Name="SortBtn"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск"/>
+                <TextBox x:Name="PoistTb"/>
+            </StackPanel>
+
+
+        </StackPanel>
+        <Button Content="Add" Name="AbbBtn"
+                    Click="AbbBtn_Click"
+                    HorizontalAlignment="Right"/>
+
+        <DataGrid IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                   ColumnWidth="*" 
+                  x:Name="TypeProdDt"  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Title"
+                                    Binding="{Binding Title}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditBtn"
+                                   Click="EditBtn_Click"
+                                    Width="50"/>
+                                <Button Content="Delet"
+                                    x:Name="DeletBtn"
+                                  Click="DeletBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

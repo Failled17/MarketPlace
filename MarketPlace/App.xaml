@@ -6,51 +6,136 @@
     <Application.Resources>
 
         <Style TargetType="Button">
-            <Setter Property="Height" Value="20"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter  Property="Background" Value="#FF9067BB"/>
-            <Setter Property="Foreground" Value="#FF021A37"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="BorderBrush" Value="#FF0E59AC"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="buttonBorder" CornerRadius="5"
+                        BorderBrush="Gray"
+                        BorderThickness="0.4"
+                        Background="#828282">
+                            <ContentControl Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            FontFamily="Tahoma"
+                            Foreground="WHITE" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="buttonBorder" Property="Background" Value="#9C9C9C"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="buttonBorder" Property="Background" Value="#828282"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="TitleTb">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF021A37"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="TextBox" >
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Height" Value="20"/>
-            <!--<Setter Property="Background" Value="#FF6F91CA"/>-->
-            <Setter Property="Foreground" Value="#FF22121F"/>
-            <Setter Property="FontSize" Value="12"/>
-
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="TextBlock.FontWeight" Value="Heavy"/>
+            <Setter Property="Foreground" Value=" WHITE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Name="Bd"
+                        Background="	#828282"
+                        BorderThickness="0.4"
+                        BorderBrush="Gray"
+                        CornerRadius="10"
+                        SnapsToDevicePixels="true"
+                            Padding="0">
+                            <Grid Margin="5">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <TextBlock 
+                               Foreground="WHITE" 
+                               Visibility="Collapsed"
+                               />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                         Value="false">
+                                <Setter TargetName="Bd"
+                                            Property="Background"
+                                            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground"
+                                            Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="150"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Height" Value="20"/>
-            <Setter Property="Foreground" Value="#FF22121F"/>
+            <Setter Property="Foreground" Value="WHITE"/>
             <Setter Property="FontSize" Value="12"/>
         </Style>
 
         <Style TargetType="Border" x:Key="BorderMe">
-            <Setter Property="BorderBrush" Value="#FF0E59AC"/>
-            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Width" Value="19"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Height" Value="19"/>
+            <Setter Property="CornerRadius" Value="50"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Width" Value="20"/>
+                    <Setter Property="Height" Value="20"/>
+                    <Setter Property="Background" Value="#363636"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="PasswordBox">
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Height" Value="20"/>
-            <!--<Setter Property="Background" Value="#FFBDECF3"/>-->
-            <Setter Property="Foreground" Value="#FF22121F"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border Name="Bd"
+                        Background="		#828282"
+                        BorderThickness="0.4"
+                        BorderBrush="Gray"
+                        CornerRadius="10"
+                        SnapsToDevicePixels="true">
+                            <Grid Margin="5">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <TextBlock Text="Введите пароль" 
+                           Foreground="White"  
+                           Visibility="Collapsed"
+                           Name="txtPrompt"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                         Value="false">
+                                <Setter TargetName="Bd"
+                                            Property="Background"
+                                            Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground"
+                                            Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>

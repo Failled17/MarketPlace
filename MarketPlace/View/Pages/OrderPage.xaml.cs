@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketPlace.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MarketPlace.View.Pages;
 
 namespace MarketPlace.View.Pages
 {
@@ -23,6 +25,18 @@ namespace MarketPlace.View.Pages
         public OrderPage()
         {
             InitializeComponent();
+            var user = HelpClass.AutoUset.Id;
+            var contextorders = App.db.Order.Where(x => x.UserId == user);
+            OrderLw.ItemsSource = contextorders.ToList();
+            //     var con = App.db.ProductOrder.Where(x => x.Order == contextorders).Select(z => z.Order).ToList();
+
+
+        }
+
+        private void EditStatusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var ord = (sender as Button).DataContext as Order;
+            NavigationService.Navigate(new EditOrderPage(ord));
         }
     }
 }

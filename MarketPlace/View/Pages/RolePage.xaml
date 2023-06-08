@@ -9,6 +9,52 @@
       Title="RolePage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="363*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <DataGrid  AutoGenerateColumns="False"
+                 ColumnWidth="*" 
+                   IsReadOnly="True"
+                   x:Name="RoleDt">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Width="20"
+                                     Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Title"
+                                    Binding="{Binding Title}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditBtn"
+                                    Click="EditBtn_Click"
+                                    Width="50"/>
+                                <Button Content="Delet"
+                                    x:Name="DeletBtn"
+                                 Click="DeletBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Button Grid.Row="1" Content="Add Role"
+             Width="100" 
+                x:Name="AddBtn"
+                Click="AddBtn_Click"/>
+
     </Grid>
 </Page>

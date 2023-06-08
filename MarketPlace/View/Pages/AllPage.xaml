@@ -9,6 +9,83 @@
       Title="AllPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Title" Margin="5"/>
+                <TextBlock Text="{Binding Title}"
+             x:Name="TitleTb" Margin="5"  
+            Width="100" Height="auto"
+           />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Description" Margin="5"/>
+                <TextBlock Text="{Binding Descriprion}"
+                Margin="5" 
+                Width="150" TextWrapping="Wrap"     
+               Height="auto" 
+             />
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="TypeProduct" Margin="5"/>
+                <TextBlock x:Name="TypeCb"
+                  Width="100" Margin="5"
+                  TextWrapping="Wrap"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="Provider" Margin="5"/>
+                <TextBlock x:Name="ProviderTb" Width="100"
+             Height="auto" Margin="5"
+             TextWrapping="Wrap"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cost" Margin="5"/>
+                <TextBlock x:Name="CostTb"
+                Width="100" Margin="5" 
+               Text="{Binding Cost}" />
+            </StackPanel>
+
+
+            <Button Content="Exit" Name="ExitBtn"
+                    Click="ExitBtn_Click"/>
+
+        </StackPanel>
+
+        <DockPanel Grid.Column ="1" Margin="10" HorizontalAlignment="Center">
+
+            <ListView x:Name="ImageLW" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
+
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <Border>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Image Width="150" Margin="5"
+                                       Height="150"
+                               Source="{Binding Photo}"
+                               RenderOptions.BitmapScalingMode="Fant"/>
+
+                            </StackPanel>
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
+
     </Grid>
 </Page>

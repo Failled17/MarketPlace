@@ -9,6 +9,82 @@
       Title="ProductPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="	#363636"/>
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка" VerticalAlignment="Center"  Foreground="WHITE"/>
+                <ComboBox x:Name="SortCb"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15" Text="Поиск" VerticalAlignment="Center"  Foreground="WHITE" />
+                <TextBox x:Name="PoisTb" Margin="10" Width="170" Height="25" Background = "#363636"/>
+            </StackPanel>
+
+            <Button Content="Add" Name="AddBtn"
+                    Click="AddBtn_Click_1" Margin="340 20 0 0 "
+                     HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    />
+
+
+
+        </StackPanel>
+        <ListView Grid.Row="1" 
+                  x:Name="ProdLw"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ProdLw_SelectionChanged" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+
+                        <Grid Background="	#4F4F4F">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Width="150" Height="150" Source="{Binding MainPhoto}" />
+                           
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Text="Name" Margin="5"  Foreground="WHITE"/>
+                                <TextBlock Text="{Binding FullInfo}" 
+                                       Foreground="WHITE"
+                                       TextWrapping="Wrap"
+                                       Width="100" Margin="5"
+                                       />
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Vertical">
+                                <Button Content="В корзину" x:Name="AddBtn"
+                                   Click="AddBtn_Click"
+                                    Margin="5"/>
+                                <Button Content="Информация о продукте"
+                                    x:Name="InformationBtn"
+                                   Click="InformationBtn_Click"
+                                    Margin="5"/>
+
+                                <Button Content="Отзывы"
+                                        Margin="5"
+                                        x:Name="ProductInformationBtn"
+                                        Click="ProductInformationBtn_Click"
+                                           />
+
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </Page>

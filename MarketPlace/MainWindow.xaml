@@ -7,7 +7,7 @@
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
        Title="MainWindow" Height="800" Width="1200">
-    <Grid>
+    <Grid Background="	#828282">
 
         <Frame x:Name="MyFrame" NavigationUIVisibility="Hidden" />
     </Grid>

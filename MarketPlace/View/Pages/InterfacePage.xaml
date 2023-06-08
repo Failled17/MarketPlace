@@ -9,6 +9,44 @@
       Title="InterfacePage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="383*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#363636"/>
+        <StackPanel HorizontalAlignment="Left" Width="110" Margin="0,0,0,372" Grid.RowSpan="2">
+            <Image Source="\Resource\logo.png"
+               Width="200"
+               HorizontalAlignment="Center" Grid.RowSpan="2" Height="82"/>
+        </StackPanel>
+        <Button x:Name="ExitBtn"
+                      VerticalAlignment="Top" HorizontalAlignment="Right"
+                        Margin="15"
+                       Click="ExitBtn_Click" >
+            <Image  Source="\Resource\exit.png" />
+        </Button>
+
+        <DockPanel Grid.Row="2">
+
+            <StackPanel DockPanel.Dock="Left" Background="	#363636">
+
+                <Button Width="90" Content="Product" VerticalAlignment="Top"
+                        x:Name="ProductBtn" Click="ProductBtn_Click"
+                        Margin="10 "/>
+
+
+
+                <Button Width="90" Content="Basket"
+                        x:Name="BasketBtn"
+                        Click="BasketBtn_Click"/>
+                <Button Content="Info"
+                        Name="InfoBtn"
+                        Margin="10 "
+                        Click="InfoBtn_Click"/>
+
+            </StackPanel>
+            <Frame DockPanel.Dock="Top" x:Name="MyFrame"></Frame>
+
+        </DockPanel>
     </Grid>
 </Page>

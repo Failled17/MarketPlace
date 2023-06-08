@@ -112,8 +112,38 @@
     <Compile Include="View\Pages\UserListPage.xaml.cs">
       <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\AddDelivery.xaml.cs">
+      <DependentUpon>AddDelivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddDeliveryPointWin.xaml.cs">
+      <DependentUpon>AddDeliveryPointWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddImageWin.xaml.cs">
+      <DependentUpon>AddImageWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddProviderWin.xaml.cs">
+      <DependentUpon>AddProviderWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddRoleWin.xaml.cs">
+      <DependentUpon>AddRoleWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddTypeWin.xaml.cs">
+      <DependentUpon>AddTypeWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\AddUserWin.xaml.cs">
+      <DependentUpon>AddUserWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\BankCardWin.xaml.cs">
       <DependentUpon>BankCardWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\EditStatusWin.xaml.cs">
+      <DependentUpon>EditStatusWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\EdProvWin.xaml.cs">
+      <DependentUpon>EdProvWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\OrderBarCodWin.xaml.cs">
+      <DependentUpon>OrderBarCodWin.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -195,7 +225,47 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\AddDelivery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddDeliveryPointWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddImageWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddProviderWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddRoleWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddTypeWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\AddUserWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\BankCardWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\EditStatusWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\EdProvWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\OrderBarCodWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -308,6 +378,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\logo.png" />
+    <Resource Include="Resource\exit.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

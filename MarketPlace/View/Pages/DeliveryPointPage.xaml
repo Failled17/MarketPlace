@@ -9,6 +9,61 @@
       Title="DeliveryPointPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="322*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировка"/>
+                <ComboBox x:Name="SortBtn"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск"/>
+                <TextBox x:Name="PoistTb"/>
+            </StackPanel>
+
+
+        </StackPanel>
+        <DataGrid  AutoGenerateColumns="False"
+                 ColumnWidth="*" 
+                   IsReadOnly="True"
+                   Grid.Row="1"
+                   x:Name="DeliveryPointDt" 
+               >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                     Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Title"
+                                    Binding="{Binding Adress}"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+
+                                <Button Content="Edit"
+                                    x:Name="EditDelivpointBtn"
+Click="EditDelivpointBtn_Click"
+                                        Width="50"/>
+                                <Button Content="Delet"
+                                    x:Name="DeletDeliveryPointBtn"
+                               Click="DeletDeliveryPointBtn_Click"
+                                    Width="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Add delivery point"
+                Name="AddPoint"
+             Grid.Row="3"
+                Width="110"
+              Click="AddPoint_Click"/>
     </Grid>
 </Page>

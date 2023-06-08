@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarketPlace.View.Windows"
         mc:Ignorable="d"
-        Title="BankCardWin" Height="450" Width="800">
+        Title="BankCardWin" Height="300" Width="300">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Number" Margin="5"/>
+                <TextBox Text="{Binding Numger}"  Margin="5"  
+                         Height="20" MaxLength="13" PreviewTextInput="TextBox_PreviewTextInput"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="CSV"  Margin="5"/>
+                    <TextBox Text="{Binding CSV }" MaxLength="3"
+                             Width="50"
+                              Margin="5" PreviewTextInput="TextBox_PreviewTextInput_1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Agr" Margin="5"/>
+                    <DatePicker SelectedDate="{Binding Age}"  Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Bank"  Margin="5"/>
+            <ComboBox x:Name="BankCb" DisplayMemberPath="Title"
+                      SelectedItem="{Binding Bank}"  Margin="5"/>
+
+            <Button Content="Save" x:Name="SaveBtn"
+                    Click="SaveBtn_Click"  Margin="5"/>
+            <Button Content="Exit" x:Name="ExitBtn"
+                    Click="ExitBtn_Click" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>

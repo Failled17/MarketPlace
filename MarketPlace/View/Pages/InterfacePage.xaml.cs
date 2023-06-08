@@ -24,5 +24,25 @@ namespace MarketPlace.View.Pages
         {
             InitializeComponent();
         }
+        private void ProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.NavigationService.Navigate(new ProductPage());
+        }
+
+        private void BasketBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.NavigationService.Navigate(new BasketPage());
+
+        }
+
+        private void InfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.NavigationService.Navigate(new ClientHomePage());
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

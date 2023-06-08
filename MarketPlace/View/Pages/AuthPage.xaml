@@ -25,17 +25,13 @@
                              Width="150" Visibility="Collapsed"/>
                     <PasswordBox x:Name="Password2Pb"  
                                  Height="20" Margin="5"
-                                 Width="150" />
+                                 Width="190" />
                     <Button x:Name="Vid" 
                        Click="Vid_Click"
                              Width="25" Height="25">
                         <Image Source="\Resoures\63656.png"/>
                     </Button>
-                    <Button x:Name="Sce" Width="25" Height="25" 
-                      Click="Sce_Click">
-                        <Image Source="\Resoures\201f0cdf3f9a2a4efff1abb2c507a472.png"/>
-
-                    </Button>
+                    
                     <CheckBox
                         Visibility="Hidden"
                       x:Name="ShowPasswordCharsCheckBox"

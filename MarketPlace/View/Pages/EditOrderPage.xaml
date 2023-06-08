@@ -9,6 +9,112 @@
       Title="EditOrderPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="241*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Number" Margin="5"/>
+                <TextBox Text="{Binding Id}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="DateEnd" Margin="5"/>
+                <TextBox Text="{Binding DateEnd}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Date" Margin="5"/>
+                <TextBox Text="{Binding Date}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="UserId" Margin="5"/>
+                <ComboBox x:Name="UserCb"
+                      SelectedIndex="{Binding Useer}"
+                      DisplayMemberPath="Name" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="TypePaymentId" Margin="5"/>
+                <ComboBox x:Name="TypePaymentCb"
+                      SelectedItem="{Binding TypePayment}"
+                      DisplayMemberPath="Title" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="DeliveryType" Margin="5"/>
+                <ComboBox Name="DeliveryTypeCb" 
+                      DisplayMemberPath="Title"
+                      SelectedItem="{Binding DeliveryType}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="AdressDelivery" Margin="5"/>
+                <TextBox Text="{Binding AdressDelivery}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="[Check]" Margin="5"/>
+                <TextBox Text="{Binding Check}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="DeliveryPointId" Margin="5"/>
+                <ComboBox x:Name="DeliveryPointCb"
+                      Margin="5"
+                      SelectedItem="{Binding DeliveryPoint}"
+                      DisplayMemberPath="Adress"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Sum" Margin="5"/>
+                <TextBox Text="{Binding Sum}" Margin="5"/>
+            </StackPanel>
+            <Button Content=" Save" x:Name="SaveBtn"
+                    Click="SaveBtn_Click"/>
+        </StackPanel>
+
+        <ListView Grid.Column="1" x:Name="ProductLw" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Title" Margin="5"/>
+                            <TextBlock Text="{Binding Product.Title}"
+                                   Width="100" TextWrapping="Wrap"    Margin="5"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="StatysOrder" Margin="5"/>
+                            <TextBlock x:Name="StatysId"
+                                Text="{Binding StatysOrder.Title}"
+                                      Margin="5"  />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Count" Margin="5"/>
+                            <TextBlock 
+                                Width="50"
+                                Text="{Binding Quantity}" Margin="5"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Column="3">
+                            <TextBlock Text="BarCode" Margin="5"/>
+                            <TextBlock Text="{Binding BarCode}" Margin="5"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Column="4">
+                            <Button Content="Edit" Name="EditBtn"
+                                    Click="EditBtn_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

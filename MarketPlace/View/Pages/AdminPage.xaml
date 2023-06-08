@@ -9,6 +9,73 @@
       Title="AdminPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="335*"/>
+            <RowDefinition Height="31*"/>
+        </Grid.RowDefinitions>
+        <!--<Rectangle Fill="#FF1854C7" Opacity="0.6"/>-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Image Source="\Resoures\логотип.png"
+               Width="90"
+               Margin="5 0 0 0 "
+               Height="100"
+               HorizontalAlignment="Left"/>
+
+            <StackPanel Orientation="Vertical" >
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+
+                    <Button Width="90" Content="Product" 
+                        x:Name="ProductBtn" Click="ProductBtn_Click" Margin="5"/>
+
+                    <Button Width="90" Content="Provider" 
+                        x:Name="ProviderBtn" Click="ProviderBtn_Click"/>
+
+                    <Button Width="90" Content="Type Product"
+                        x:Name="TypepProdBtn"
+                        Click="TypepProdBtn_Click"/>
+
+                    <Button Width="90" Content="Basket"
+                        x:Name="BasketBtn"
+                        Click="BasketBtn_Click"/>
+                    <Button Content="Info"
+                        Name="InfoBtn"
+                        Click="InfoBtn_Click"/>
+
+                    <Button Content="Giv order"
+                        x:Name="GivOrderBtn"
+                        Click="GivOrderBtn_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content=" type Delivety" Name="DeliveryBtn"
+                            Click="DeliveryBtn_Click"/>
+                    <Button Content="Orders"
+                             Name="Orderbtn"
+                            Click="Orderbtn_Click"/>
+                    <Button Content="Delivery poin "
+                            Name="DeliveryPointBtn"
+                            Click="DeliveryPointBtn_Click"/>
+                    <Button Content="Role"
+                            x:Name="RoleBtn"
+                            Click="RoleBtn_Click"/>
+                    <Button Content="User" x:Name="UserBtn"
+                            Click="UserBtn_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+
+
+
+        <Button x:Name="ExitBtn"
+                      VerticalAlignment="Top" HorizontalAlignment="Right"
+                        Content="Exit" 
+                        Click="ExitBtn_Click" Width="100" Height="20"/>
+
+
+        <Frame Grid.Row="1" x:Name="MyFrame" />
+        <Rectangle Grid.Row="3" Fill="#FF0E107D" Opacity="0.5"/>
     </Grid>
 </Page>
